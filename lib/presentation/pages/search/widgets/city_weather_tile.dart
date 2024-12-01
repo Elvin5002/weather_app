@@ -44,7 +44,6 @@ class CityWeatherTile extends ConsumerWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      // Row 1
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,

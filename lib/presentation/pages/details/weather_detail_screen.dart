@@ -32,23 +32,16 @@ class WeatherDetailScreen extends ConsumerWidget {
                     height: 30,
                     width: double.infinity,
                   ),
-                  // Country name text
                   Text(
                     weather.name,
                     style: TextStyles.h1,
                   ),
-
                   const SizedBox(height: 20),
-
-                  // Today's date
                   Text(
                     DateTime.now().dateTime,
                     style: TextStyles.subtitleText,
                   ),
-
                   const SizedBox(height: 50),
-
-                  // Weather icon big
                   SizedBox(
                     height: 300,
                     child: Image.asset(
@@ -56,22 +49,15 @@ class WeatherDetailScreen extends ConsumerWidget {
                       fit: BoxFit.contain,
                     ),
                   ),
-
                   const SizedBox(height: 50),
-
-                  // Weather description
                   Text(
                     weather.weather[0].description.capitalize,
                     style: TextStyles.h2,
                   ),
                 ],
               ),
-
               const SizedBox(height: 40),
-
-              // Weather info in a row
               WeatherInfo(weather: weather),
-
               const SizedBox(height: 15),
             ],
           );

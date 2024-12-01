@@ -8,9 +8,7 @@ import '../../../../core/utils/get_weather_icons.dart';
 import '../../../providers/get_hourly_forecast_provider.dart';
 
 class HourlyForecastView extends ConsumerWidget {
-  const HourlyForecastView({
-    super.key,
-  });
+  const HourlyForecastView({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

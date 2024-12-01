@@ -13,7 +13,7 @@ class RoundTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 55,
+      height: 50,
       decoration: BoxDecoration(
         color: AppColors.accentBlue,
         borderRadius: BorderRadius.circular(10.0),
@@ -26,6 +26,7 @@ class RoundTextField extends StatelessWidget {
         decoration: const InputDecoration(
           fillColor: Colors.white,
           focusColor: Colors.white,
+          contentPadding: EdgeInsets.only(left: 20, top: 12),
           prefixIcon: Icon(
             Icons.search,
             color: AppColors.grey,

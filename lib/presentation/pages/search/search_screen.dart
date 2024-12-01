@@ -32,7 +32,6 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return const GradientContainer(
       children: [
-        // Page title
         Align(
           alignment: Alignment.center,
           child: Text(
@@ -40,33 +39,23 @@ class _SearchScreenState extends State<SearchScreen> {
             style: TextStyles.h1,
           ),
         ),
-
         SizedBox(height: 20),
-
-        // Page subtitle
         Text(
           'Find the area or city that you want to know the detailed weather info at this time',
           style: TextStyles.subtitleText,
           textAlign: TextAlign.center,
         ),
-
         SizedBox(height: 40),
-
-        // Pick location row
         Row(
           children: [
-            // Choose city text field
             Expanded(
               child: RoundTextField(),
             ),
             SizedBox(width: 15),
-
             LocationIcon(),
           ],
         ),
-
         SizedBox(height: 30),
-
         FamousCitiesWeather(),
       ],
     );
@@ -79,7 +68,7 @@ class LocationIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 55,
+      height: 50,
       width: 55,
       decoration: BoxDecoration(
         color: AppColors.accentBlue,

@@ -24,22 +24,16 @@ class WeatherScreen extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(width: double.infinity),
-                // Country name text
                 Text(
                   weather.name,
                   style: TextStyles.h1,
                 ),
-
                 const SizedBox(height: 20),
-
-                // Today's date
                 Text(
                   DateTime.now().dateTime,
                   style: TextStyles.subtitleText,
                 ),
-
                 const SizedBox(height: 30),
-
                 SizedBox(
                   height: 260,
                   child: Image.asset(
@@ -47,7 +41,6 @@ class WeatherScreen extends ConsumerWidget {
                     fit: BoxFit.contain,
                   ),
                 ),
-
                 const SizedBox(height: 30),
                 Text(
                   weather.weather[0].description.capitalize,
@@ -55,13 +48,9 @@ class WeatherScreen extends ConsumerWidget {
                 ),
               ],
             ),
-
             const SizedBox(height: 40),
-
             WeatherInfo(weather: weather),
-
             const SizedBox(height: 40),
-
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -82,10 +71,7 @@ class WeatherScreen extends ConsumerWidget {
                 ),
               ],
             ),
-
             const SizedBox(height: 15),
-
-            // hourly forcast
             const HourlyForecastView(),
           ],
         );
