@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:weather_app/core/extensions/datetime.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/text_styles.dart';
+import '../../../../core/extensions/datetime.dart';
 import '../../../../core/utils/get_weather_icons.dart';
 import '../../../providers/get_weekly_forecast_provider.dart';
 
@@ -15,25 +15,28 @@ class WeeklyForecastView extends ConsumerWidget {
     final weeklyForecast = ref.watch(weeklyForecastProvider);
 
     return weeklyForecast.when(
-      data: (weatherData) {
-        return ListView.builder(
-          itemCount: weatherData.daily.weatherCode.length,
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) {
-            final dayOfWeek =
-                DateTime.parse(weatherData.daily.time[index]).dayOfWeek;
-            final date = weatherData.daily.time[index];
-            final temp = weatherData.daily.temperature2mMax[index];
-            final icon = weatherData.daily.weatherCode[index];
+      data: (either) {
+        return either.fold(
+          (error) => Center(child: Text('Error: ${error.toString()}')),
+          (weatherData) => ListView.builder(
+            itemCount: weatherData.daily.weatherCode.length,
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemBuilder: (context, index) {
+              final dayOfWeek =
+                  DateTime.parse(weatherData.daily.time[index]).dayOfWeek;
+              final date = weatherData.daily.time[index];
+              final temp = weatherData.daily.temperature2mMax[index];
+              final icon = weatherData.daily.weatherCode[index];
 
-            return WeeklyForecastTile(
-              date: date,
-              day: dayOfWeek,
-              icon: getWeatherIcon2(icon),
-              temp: temp.round(),
-            );
-          },
+              return WeeklyForecastTile(
+                date: date,
+                day: dayOfWeek,
+                icon: getWeatherIcon2(icon),
+                temp: temp.round(),
+              );
+            },
+          ),
         );
       },
       error: (error, stackTrace) {

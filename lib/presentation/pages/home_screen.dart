@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../core/constants/app_colors.dart';
-import '../../data/service/api_helper.dart';
 import 'forecast/forecast_report_screen.dart';
 import 'search/search_screen.dart';
 import 'settings/settings_screen.dart';
@@ -15,12 +14,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _currentPageIndex = 0;
-
-  @override
-  void initState() {
-    ApiHelper.getCurrentWeather();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
