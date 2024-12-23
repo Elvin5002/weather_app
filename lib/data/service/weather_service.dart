@@ -10,15 +10,15 @@ import '../models/weekly_weather.dart';
 import 'getlocation.dart';
 
 class WeatherService {
-  double lat = 0.0;
-  double lon = 0.0;
+  double? lat;
+  double? lon;
   final dio = Dio();
 
   //* Current Weather
   Future<Either<Exception, Weather>> getCurrentWeather() async {
     try {
       await fetchLocation();
-      final url = Endpoints.weatherByCoordinates(lat, lon);
+      final url = Endpoints.weatherByCoordinates(lat!, lon!);
       final response = await dio.get(url);
 
       if (response.statusCode == 200) {
@@ -37,7 +37,7 @@ class WeatherService {
   Future<Either<Exception, HourlyWeather>> getHourlyForecast() async {
     try {
       await fetchLocation();
-      final url = Endpoints.forecastByCoordinates(lat, lon);
+      final url = Endpoints.forecastByCoordinates(lat!, lon!);
       final response = await dio.get(url);
 
       if (response.statusCode == 200) {
@@ -56,7 +56,7 @@ class WeatherService {
   Future<Either<Exception, WeeklyWeather>> getWeeklyForecast() async {
     try {
       await fetchLocation();
-      final url = Endpoints.weeklyWeather(lat, lon);
+      final url = Endpoints.weeklyWeather(lat!, lon!);
       final response = await dio.get(url);
 
       if (response.statusCode == 200) {
@@ -91,6 +91,7 @@ class WeatherService {
   }
 
   Future<void> fetchLocation() async {
+    if (lat != null && lon != null) return;
     final location = await getLocation();
     lat = location.latitude;
     lon = location.longitude;
