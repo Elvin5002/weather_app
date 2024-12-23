@@ -9,7 +9,6 @@ A modern and user-friendly weather application built with **Flutter**. This app 
 - **Search**: Search weather conditions for any city worldwide.
 - **Responsive UI**: Optimized for both Android and iOS devices.
 - **Animations**: Engaging animations for weather conditions.
-- **Dark Mode**: Support for light and dark themes.
 
 ## Screenshots
 
