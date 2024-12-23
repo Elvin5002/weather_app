@@ -15,7 +15,7 @@ A modern and user-friendly weather application built with **Flutter**. This app 
 
 | Home Screen | Search Screen | Forecast Screen |
 |-------------|---------------|-----------------|
-| ![Home Screen](screenshots/home.png) | ![Search Screen](screenshots/search.png) | ![Forecast Screen](screenshots/forecast.png) |
+| ![Home Screen](assets/screenshots/home.png) | ![Search Screen](assets/screenshots/search.png) | ![Forecast Screen](assets/screenshots/forecast.png) |
 
 ## Technologies Used
 
