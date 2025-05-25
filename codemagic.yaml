@@ -1,6 +1,6 @@
 workflows:
-  flutter-build:
-    name: Build Weather App
+  ios-only:
+    name: Build iOS App
     max_build_duration: 60
     environment:
       flutter: stable
@@ -9,20 +9,15 @@ workflows:
         BUILD_NAME: 1.0.0
         BUILD_NUMBER: 1
     scripts:
-      - name: Install dependencies
+      - name: Get dependencies
         script: flutter pub get
 
-      - name: Build Android APK
-        script: flutter build apk --release
-
-      - name: Build iOS
-        script: |
-          flutter build ios --release --no-codesign
+      - name: Build iOS (No Code Sign)
+        script: flutter build ios --release --no-codesign
 
     artifacts:
-      - build/app/outputs/flutter-apk/app-release.apk
       - build/ios/iphoneos/Runner.app
-
+      - build/ios/ipa/*.ipa
     publishing:
       email:
         recipients:
