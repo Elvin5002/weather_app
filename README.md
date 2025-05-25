@@ -45,7 +45,7 @@ A modern and user-friendly weather application built with **Flutter**. This app 
    flutter run
    ```
 
-4. Make sure to add your API key in the `lib/constants/api_constants.dart` file:
+4. Make sure to add your API key in the `lib/constants/constants.dart` file:
 
    ```dart
    const String apiKey = 'YOUR_API_KEY';
